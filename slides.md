@@ -13,12 +13,16 @@ mdc: true
 ---
 
 <h1 class="font-bold">A Importância do <span class="text-[#08a3c1]">Fórum Online</span></h1>
-<p class="text-xl mt-4">como Ferramenta de Interação e Compartilhamento de Conhecimento</p>
+<p class="text-xl mt-4">Como Ferramenta de Interação e Compartilhamento de Conhecimento</p>
 
-
-<img class="absolute rotate-45
--bottom-15 -left-10 z-0" src="/images/detail_2.svg">
-<img class="absolute rotate-45 -top-10 -right-5 z-0" src="/images/detail_2.svg">
+<img 
+  class="absolute rotate-45 -bottom-15 -left-25 z-0" 
+  src="/images/detail_2.svg"
+  style="width: 250px; height: 250px;">
+<img 
+  class="absolute rotate-45 -top-5 -right-10 z-0" 
+  src="/images/detail_2.svg"
+  style="width: 220px; height: 220px;">
 
 ---
 layout: full
@@ -224,7 +228,7 @@ transition: slide-up
 ---
 layout: full
 class: bg-black
-clicks: 1
+clicks: 2
 transition: slide-left
 ---
 
@@ -234,41 +238,39 @@ transition: slide-left
 
 <div class="px-10 mt-8 relative z-10">
   <div v-click>
-    <h2 class="font-semibold text-xl mb-4 text-[#08a3c1]">Dificuldades acadêmicas dos estudantes</h2>
-    <div class="h-64 border-2 border-[#0891b2] rounded-2xl p-4 bg-[#0a2540] flex items-center justify-center z-10">
-      <p class="text-[#06b6d4] text-lg z-10">
-        [ESPAÇO PARA GRÁFICO — Frequência de dificuldades para esclarecer dúvidas acadêmicas]
-      </p>
+    <h2 class="font-semibold text-xl mb-4 text-[#08a3c1]">
+      Dificuldades acadêmicas dos estudantes
+    </h2>
+    <!-- Gráfico de Dúvidas -->
+    <div class="w-full h-80 flex">
+      <MeuGraficoDeDuvidas class="flex-grow h-full" :clicks="$clicks" :start-at="1" />
     </div>
-    <h3 class="text-center mt-5 text-lg italic">
-      Lacuna identificada: <span class="text-[#08a3c1]">redes sociais não suprem discussões estruturadas</span>
-    </h3>
   </div>
 </div>
 
-<img class="absolute rotate-45
--bottom-15 -left-10 z-0" src="/images/detail_2.svg">
+<img class="absolute rotate-45 -bottom-15 -left-10 z-0" src="/images/detail_2.svg">
 <img class="absolute rotate-45 -top-10 -right-5 z-0" src="/images/detail_2.svg">
-
-
 
 ---
 layout: full
 class: bg-black
-clicks: 1
+clicks: 2
+transition: slide-left
 ---
 
 <h1 class="font-bold text-center mt-5">Participação em <span class="text-[#08a3c1]">Fóruns</span></h1>
 
 <div class="px-10 mt-8 relative z-10">
   <h2 class="font-semibold text-xl mb-4 text-[#06b6d4]">Cenário atual de baixa adesão</h2>
-  <div class="h-72 border-2 border-[#0891b2] rounded-2xl p-4 bg-[#0a2540] flex items-center justify-center mb-6">
-    <p class="text-[#06b6d4] text-lg">[ESPAÇO PARA GRÁFICO - Nível de participação em fóruns online]</p>
+
+  <!-- Gráfico de Participação -->
+  <div class="w-full h-80 flex">
+    <GraficoParticipacao class="flex-grow h-full" :clicks="$clicks" :start-at="1"/>
   </div>
 </div>
 
-<img class="absolute rotate-45
--bottom-15 -left-10 z-0" src="/images/detail_2.svg">
+<!-- Elementos decorativos -->
+<img class="absolute rotate-45 -bottom-15 -left-10 z-0" src="/images/detail_2.svg">
 <img class="absolute rotate-45 -top-10 -right-5 z-0" src="/images/detail_2.svg">
 
 
@@ -457,7 +459,7 @@ transition: slide-left
 layout: full
 class: bg-black
 transition: slide-up
-clicks: 1
+clicks: 2
 ---
 
 <h1 class="font-bold text-center mt-5 text-white">
@@ -471,18 +473,19 @@ clicks: 1
     Necessidades identificadas na pesquisa
   </h2>
 
-  <!-- Gráfico ou placeholder -->
-  <div class="transition-all duration-700 border-2 border-[#0891b2] rounded-2xl p-6 bg-[#0a2540] flex items-center justify-center h-80 mx-auto"
-       :class="{'opacity-100 translate-y-0': $clicks >= 1, 'opacity-0 translate-y-6': $clicks < 1}">
-    <p class="text-[#06b6d4] text-lg text-center">
-      [GRÁFICO - Tipos de interação desejadas em fóruns]
-    </p>
+  <!-- Gráfico de Interesses -->
+  <div class="w-full h-80 flex">
+    <GraficoInteresseUsuarios 
+      class="flex-grow h-full" 
+      :clicks="$clicks" 
+      :start-at="1" />
   </div>
-
 </div>
-<img class="absolute rotate-45
--bottom-15 -left-10 z-0" src="/images/detail_2.svg">
+
+<!-- Elementos decorativos -->
+<img class="absolute rotate-45 -bottom-15 -left-10 z-0" src="/images/detail_2.svg">
 <img class="absolute rotate-45 -top-10 -right-5 z-0" src="/images/detail_2.svg">
+
 
 ---
 layout: full
@@ -544,11 +547,11 @@ clicks: 2
        class="transition-all duration-700 p-5 rounded-xl border-2 border-[#06b6d4] bg-gradient-to-b from-[#06b6d4] to-[#0a2540] text-white">
     <h3 class="font-semibold text-lg mb-2">Funcionais</h3>
     <ul class="space-y-1 text-sm">
-      <li>• Sistema de cadastro/login com autenticação</li>
-      <li>• Criação, visualização, edição e exclusão de postagens</li>
-      <li>• Tags e categorias para organização</li>
-      <li>• Respostas em tempo real</li>
-      <li>• Sistema de reputação e conquistas</li>
+      <li class="list-none">• Sistema de cadastro/login com autenticação</li>
+      <li class="list-none">• Criação, visualização, edição e exclusão de postagens</li>
+      <li class="list-none">• Tags e categorias para organização</li>
+      <li class="list-none">• Respostas em tempo real</li>
+      <li class="list-none">• Sistema de reputação e conquistas</li>
     </ul>
   </div>
 
@@ -557,9 +560,9 @@ clicks: 2
        class="transition-all duration-700 p-5 rounded-xl border-2 border-[#0891b2] bg-gradient-to-b from-[#0891b2] to-[#0a2540] text-white">
     <h3 class="font-semibold text-lg mb-2">Não Funcionais</h3>
     <ul class="space-y-1 text-sm">
-      <li>• Segurança (hash bcrypt)</li>
-      <li>• Interface responsiva</li>
-      <li>• Performance otimizada</li>
+      <li class="list-none">• Segurança (hash bcrypt)</li>
+      <li class="list-none">• Interface responsiva</li>
+      <li class="list-none">• Performance otimizada</li>
     </ul>
   </div>
 
@@ -574,24 +577,61 @@ clicks: 2
 ---
 layout: full
 class: bg-black
+clicks: 1
 ---
 
-<h1 class="font-bold text-center mt-5">Funcionalidades <span class="text-[#08a3c1]">Valorizadas</span></h1>
+<h1 class="font-bold text-center mt-5 text-white">
+  Funcionalidades <span class="text-[#08a3c1]">Valorizadas</span>
+</h1>
 
 <div class="px-10 mt-8 relative z-10">
 
-  <h2 class="font-semibold text-xl mb-4 text-[#06b6d4]">Planejamento baseado em dados</h2>
-  
-  <div class="h-80 border-2 border-[#0891b2] rounded-2xl p-4 bg-[#0a2540] flex items-center justify-center mb-6">
-    <p class="text-[#06b6d4] text-lg text-center">
-      [ESPAÇO PARA GRÁFICO - Funcionalidades mais valorizadas pelos entrevistados]
-    </p>
+  <!-- Tabela estruturada com bordas e aparecer após o 2º clique -->
+  <div
+    class="w-full max-w-3xl mx-auto bg-[#0a2540] border-2 border-[#0891b2] rounded-2xl shadow-lg overflow-hidden transition-all duration-700"
+    :class="{'opacity-100 translate-y-0': $clicks >= 1, 'opacity-0 translate-y-6': $clicks < 1}"
+  >
+    <table class="w-full border-collapse text-[#E0E0E0]">
+      <thead class="bg-[#081f36]">
+        <tr>
+          <th class="border-b border-[#1a3a5a] px-4 py-3 text-lg">Funcionalidade</th>
+          <th class="border-b border-[#1a3a5a] px-4 py-3 text-lg text-right">Percentual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-[#1a3a5a]">
+          <td class="border-r border-[#1a3a5a] px-4 py-3 font-semibold text-[#28a745]">Categorização por assuntos</td>
+          <td class="px-4 py-3 text-right font-semibold text-[#28a745]">93,8%</td>
+        </tr>
+        <tr class="border-b border-[#1a3a5a]">
+          <td class="border-r border-[#1a3a5a] px-4 py-3">Sistema de perguntas e respostas</td>
+          <td class="px-4 py-3 text-right">68,8%</td>
+        </tr>
+        <tr class="border-b border-[#1a3a5a]">
+          <td class="border-r border-[#1a3a5a] px-4 py-3">Curtidas e comentários</td>
+          <td class="px-4 py-3 text-right">46,9%</td>
+        </tr>
+        <tr class="border-b border-[#1a3a5a]">
+          <td class="border-r border-[#1a3a5a] px-4 py-3">Mensagens privadas entre usuários</td>
+          <td class="px-4 py-3 text-right">40,6%</td>
+        </tr>
+        <tr class="border-b border-[#1a3a5a]">
+          <td class="border-r border-[#1a3a5a] px-4 py-3">Gamificação</td>
+          <td class="px-4 py-3 text-right">37,5%</td>
+        </tr>
+        <tr>
+          <td class="border-r border-[#1a3a5a] px-4 py-3">Sistema de moderação</td>
+          <td class="px-4 py-3 text-right">34,4%</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<img class="absolute rotate-45
--bottom-15 -left-10 z-0" src="/images/detail_2.svg">
+<img class="absolute rotate-45 -bottom-15 -left-10 z-0" src="/images/detail_2.svg">
 <img class="absolute rotate-45 -top-10 -right-5 z-0" src="/images/detail_2.svg">
+
+
 
 ---
 layout: full
